@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="tp1">
+        <createSequence incrementBy="1" sequenceName="tp1_child_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="2" author="tp1">
+        <createSequence incrementBy="1" sequenceName="tp1_parent_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="3" author="tp1">
+        <createTable tableName="TP1_CHILD">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TP1_CHILD"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="timestamp with time zone"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="tp1">
+        <createTable tableName="TP1_PARENT">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TP1_PARENT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="timestamp with time zone"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
