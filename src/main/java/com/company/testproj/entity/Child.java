@@ -20,8 +20,7 @@ import java.util.UUID;
 public class Child {
     @Column(name = "ID", nullable = false)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tp1_child_seq")
-    @SequenceGenerator(name = "tp1_child_seq", sequenceName = "tp1_child_seq", allocationSize = 1)
+    @JmixGeneratedValue
     private Long id;
 
     @InstanceName
